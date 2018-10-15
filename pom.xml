@@ -1,0 +1,1094 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.innovanon.rnd</groupId>
+  <artifactId>M2EBorked</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>PP</name>
+	<description>InnovAnon, Inc. (Ministries) Corporate Parent POM for Maven</description>
+	<url>http://lmaddox.chickenkiller.com</url>
+	<inceptionYear>2010</inceptionYear>
+
+	<!-- https://mvnrepository.com/artifact/org.sonatype.oss/oss-parent -->
+	<!-- 
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>9</version>
+	</parent>
+ -->
+ 
+
+
+	<!-- <prerequisites> <maven>3.5.4</maven> </prerequisites> -->
+
+	<organization>
+		<name>InnovAnon, Inc. (Ministries)</name>
+		<url>https://innovanon-inc.github.io/LHP</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>lmaddox</id>
+			<name>Brahmjot Singh Khalsa</name>
+			<email>laurence.a.maddox@gmail.com</email>
+			<url>https://github.com/lmaddox</url>
+			<organization>InnovAnon, Inc. (Ministries)</organization>
+			<organizationUrl>https://innovanon-inc.github.io/LHP</organizationUrl>
+			<roles>
+				<role>Senior Ministerial Director</role>
+				<role>Senior Managing Director</role>
+				<role>Project Manager</role>
+				<role>Lead Researcher</role>
+				<role>Software Architect</role>
+				<role>Software Engineer</role>
+				<role>Dev Ops Engineer</role>
+				<role>Graphic Designer</role>
+				<role>Film Score Producer</role>
+			</roles>
+			<timezone>America/Chicago</timezone>
+			<properties>
+				<picUrl>https://c2.staticflickr.com/4/3545/3407135068_d872bb371f.jpg</picUrl>
+			</properties>
+		</developer>
+	</developers>
+	<contributors>
+	</contributors>
+
+	<licenses>
+		<license>
+			<comments>Free Code for a Free World</comments>
+			<distribution>repo</distribution>
+			<name>The Unlicense</name>
+			<url>https://choosealicense.com/licenses/unlicense</url>
+		</license>
+	</licenses>
+
+	<mailingLists>
+		<mailingList>
+			<name>project mailing list</name>
+			<subscribe>dev-subscribe@innovanon.com</subscribe>
+			<unsubscribe>dev-unsubscribe@innovanon.com</unsubscribe>
+			<post>dev@innovanon.com</post>
+			<archive>http://lmaddox.chickenkiller.com:4321/modmbox/dev</archive>
+		</mailingList>
+	</mailingLists>
+
+	<scm>
+		<!-- <connection>scm:git:https://github.com/InnovAnon-Inc/PP</connection> -->
+		<connection>scm:git:git@github.com:InnovAnon-Inc/PP.git</connection>
+		<developerConnection>scm:git:git@github.com/InnovAnon-Inc/PP</developerConnection>
+		<url>https://github.com/InnovAnon-Inc/PP</url>
+	</scm>
+
+	<issueManagement>
+		<system>Bugzilla</system>
+		<url>http://lmaddox.chickenkiller.com:1234/</url>
+	</issueManagement>
+
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>http://lmaddox.chickenkiller.com:8080/</url>
+		<notifiers>
+			<notifier>
+				<address>InnovAnon-Inc@protonmail.com</address>
+				<type>mail</type>
+			</notifier>
+			<notifier>
+				<address>InnovAnon-Inc@gmx.com</address>
+				<type>mail</type>
+			</notifier>
+			<notifier>
+				<address>InnovAnon@mailfence.com</address>
+				<type>mail</type>
+			</notifier>
+			<notifier>
+				<address>InnovAnon-Inc@tutanota.com</address>
+				<type>mail</type>
+			</notifier>
+		</notifiers>
+	</ciManagement>
+
+	<distributionManagement>
+		<!--
+		<repository>
+			<id>localDropbox</id>
+			<url>file:///opt/files/Dropbox/mvn-repo</url>
+		</repository>
+		-->
+		
+		<snapshotRepository>
+					<id>localDropbox</id>
+			 		<url>file://${user.home}/Dropbox/mvn-repo</url>		
+		</snapshotRepository>
+				<repository>
+					<id>localDropbox</id>
+			 		<url>file://${user.home}/Dropbox/mvn-repo</url>		
+			 	</repository>
+		
+		<!-- 
+		<site>
+			<id>localDropbox</id>
+			<url>file:///opt/files/Dropbox/www/docs</url>
+		</site>
+		 -->
+			<site>
+			<id>localDropbox</id>
+			 <url>file://${user.home}/Dropbox/www/docs</url>
+		</site>
+		
+		
+		
+		<!--
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+</repository>
+-->
+	</distributionManagement>
+
+	<profiles>
+	
+		<profile>
+			<id>default-profile</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<file>
+					<exists>${java.home}/lib/tools.jar</exists>
+				</file>
+			</activation>
+			<properties>
+				<toolsjar>${java.home}/lib/tools.jar</toolsjar>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>whatever-profile</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<file>
+					<exists>${java.home}/../lib/tools.jar</exists>
+				</file>
+			</activation>
+			<properties>
+				<toolsjar>${java.home}/../lib/tools.jar</toolsjar>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>mac-profile</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<file>
+					<exists>${java.home}/../Classes/classes.jar</exists>
+				</file>
+			</activation>
+			<properties>
+				<toolsjar>${java.home}/../Classes/classes.jar</toolsjar>
+			</properties>
+		</profile>
+
+
+		<profile>
+			<id>only-eclipse</id>
+			<activation>
+				<property>
+					<name>m2e.version</name>
+				</property>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<!--This plugin's configuration is used to store Eclipse m2e settings 
+							only. It has no influence on the Maven build itself. -->
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>1.0.0</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>
+													org.codehaus.gmavenplus
+												</groupId>
+												<artifactId>
+													gmavenplus-plugin
+												</artifactId>
+												<versionRange>
+													[1.6.1,)
+												</versionRange>
+												<goals>
+													<goal>execute</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore/>
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
+
+	<properties>
+		<detail>false</detail>
+		<verbose>true</verbose>
+		<debug>false</debug>
+		<indentSize>3</indentSize>
+		<lineLength>120</lineLength>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<java.version>10</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<targetJDK>${java.version}</targetJDK>
+		<targetJdk>${java.version}</targetJdk>
+
+		<aspectj.plugin.version>1.11.1</aspectj.plugin.version>
+		<aspectj.version>1.9.1</aspectj.version>
+		<reflections.version>0.9.11</reflections.version>
+		<groovy.version>2.5.1</groovy.version>
+		<dom4j.version>1.6.1</dom4j.version>
+
+		<junit.version>4.12</junit.version>
+
+		<gmavenplus-plugin.version>1.6.1</gmavenplus-plugin.version>
+		<maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+
+		<maven-site-plugin.version>3.7.1</maven-site-plugin.version>
+		<commons-lang3.version>3.8</commons-lang3.version>
+		<doxia-site-renderer.version>1.8.1</doxia-site-renderer.version>
+
+		<maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
+		<maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+		<maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
+		<maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
+		<maven-clover2-plugin.version>4.0.6</maven-clover2-plugin.version>
+		<maven-pmd-plugin.version>3.10.0</maven-pmd-plugin.version>
+		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
+		<maven-changelog-plugin.version>2.3</maven-changelog-plugin.version>
+		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
+		<code-coverage-maven-plugin.version>1.0.1.Final</code-coverage-maven-plugin.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		<maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
+		<cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
+		<javancss-maven-plugin.version>2.1</javancss-maven-plugin.version>
+		<findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
+		<jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
+
+		<!-- TODO idk what I'm doing tbh -->
+		<!-- <maven.pmd.excludes>**/generated-sources/**</maven.pmd.excludes>-->
+	</properties>
+
+	<dependencies>
+		<!-- https://search.maven.org/artifact/org.aspectj/aspectjrt -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+			<!-- <scope>runtime</scope> -->
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>${aspectj.version}</version>
+			<!-- <scope>runtime</scope> -->
+		</dependency>
+		<!-- <dependency> <groupId>com.innovanon.rnd</groupId> <artifactId>Aspect</artifactId> 
+			</dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<!-- <scope>test</scope> -->
+		</dependency>
+		
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.moxy -->
+<dependency>
+    <groupId>org.eclipse.persistence</groupId>
+    <artifactId>org.eclipse.persistence.moxy</artifactId>
+    <version>2.7.3</version>
+</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.glassfish/javax.json -->
+<dependency>
+    <groupId>org.glassfish</groupId>
+    <artifactId>javax.json</artifactId>
+    <version>1.1.3</version>
+</dependency>
+
+		
+		
+					<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
+			<dependency>
+				<groupId>org.reflections</groupId>
+				<artifactId>reflections</artifactId>
+				<version>${reflections.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+			<dependency>
+				<groupId>org.codehaus.groovy</groupId>
+				<artifactId>groovy-all</artifactId>
+				<version>${groovy.version}</version>
+				<scope>runtime</scope>
+				<type>pom</type>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>${dom4j.version}</version>
+			</dependency>
+			
+			
+			
+			
+			
+			
+			  	<dependency>
+  <groupId>com.explodingart</groupId>
+  <artifactId>jmusic</artifactId>
+  <version>1.6.4.1</version>
+</dependency>
+
+
+
+
+
+<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.4.0-b180830.0359</version>
+</dependency>
+
+<dependency>
+  <groupId>javax.activation</groupId>
+  <artifactId>activation</artifactId>
+  <version>1.1.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+<dependency>
+    <groupId>org.glassfish.jaxb</groupId>
+    <artifactId>jaxb-runtime</artifactId>
+    <version>2.4.0-b180830.0438</version>
+</dependency>
+
+
+
+
+
+
+<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5.6</version>
+</dependency>
+
+
+
+
+<dependency>
+			<groupId>com.github.mifmif</groupId>
+			<artifactId>generex</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>${reflections.version}</version>
+		</dependency>
+		
+		
+			<!-- https://mvnrepository.com/artifact/com.sharneng/gm4java -->
+		<dependency>
+			<groupId>com.sharneng</groupId>
+			<artifactId>gm4java</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		
+		
+			<dependency>
+    <groupId>com.github.javasync</groupId>
+    <artifactId>streamemo</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+
+
+
+<dependency>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-lang3</artifactId>
+  <version>3.8.1</version>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-text</artifactId>
+  <version>1.5</version>
+</dependency>
+
+
+
+
+
+<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-core -->
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-core</artifactId>
+    <version>1.2.1</version>
+</dependency>
+
+               <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-mapreduce-client-core -->
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-mapreduce-client-core</artifactId>
+    <version>3.1.1</version>
+</dependency>
+
+
+
+<dependency>
+    <groupId>com.codepoetics</groupId>
+    <artifactId>protonpack</artifactId>
+    <version>1.13</version>
+</dependency>
+
+
+	</dependencies>
+
+
+
+
+
+<!-- 
+	<reporting>
+		<plugins>
+-->			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+-->					<!-- <defaultAuthor>InnovAnon</defaultAuthor> -->
+					<!-- <charset></charset> -->
+<!--					<description>${project.description}</description>
+-->					<!-- <detectLinks>true</detectLinks> <keywords>true</keywords> <linksource>true</linksource> 
+						<old>true</old> <validateLinks>true</validateLinks> <serialwarn>true</serialwarn> 
+						<splitindex>true</splitindex> -->
+					<!-- <docfilessubdirs></docfilessubdirs> -->
+					<!-- <includeDependencySources>true</includeDependencySources> -->
+					<!-- <includeTransitiveDependencySources>true</includeTransitiveDependencySources> -->
+					<!-- <javadocVersion>1.5</javadocVersion> -->
+					<!-- <locale>en</locale> -->
+
+<!--					<level>private</level>
+					<show>private</show>
+-->					<!-- <stylesheet>java</stylesheet> -->
+<!--					<source>${java.version}</source>
+					<sourcetab>${indentSize}</sourcetab>
+
+					<stylesheetfile>src/main/javadoc/javadoc_stylesheet.css</stylesheetfile>
+
+					<failOnError>false</failOnError>
+-->					<!-- <bootclasspath>${sun.boot.class.path}</bootclasspath> -->
+
+					<!-- TODO donations, chat help -->
+<!--					<packagesheader><![CDATA[
+					<b>${project.name} Project</b><br />${project.version}
+                    ]]></packagesheader>
+					<top>Free Code for a Free World</top>
+					<footer>Innovations Anonymous</footer>
+-->					<!-- <docfilessubdirs>true</docfilessubdirs> -->
+
+<!--					<header><![CDATA[
+					<div style="overflow: auto">                
+    					<div style="float: left; display: block"><a
+    						href="https://innovanon-inc.github.com/LHP"><img 
+    						style="display: block; width: 20px; height: 20px" 
+    						src="doc-files/logo.png" 
+    						alt="Shiva Tandava" /></a></div>
+    					<div class="post-content">
+        					<b>InnovAnon, Inc.</b>
+   						</div>
+					</div>
+                    ]]></header>
+
+
+
+-->					<!-- <stylesheetfile>${basedir}/src/main/resources/stylesheet.css</stylesheetfile> 
+						<bootclasspath>${sun.boot.class.path}</bootclasspath> -->
+					<!-- <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet> <docletArtifact> --><!-- https://search.maven.org/artifact/org.umlgraph/doclet -->
+					<!-- <groupId>org.umlgraph</groupId> <artifactId>doclet</artifactId> 
+						<version>5.1</version> </docletArtifact> <additionalparam> -inferrel -attributes 
+						-types -visibility -inferdep -quiet -hide java.* -collpackages java.util.* 
+						-qualify -postfixpackage -nodefontsize 9 -nodefontpackagesize 7 </additionalparam> -->
+					<!-- https://search.maven.org/artifact/org.umlgraph/umlgraph/5.6.6/jar -->
+<!--					<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+					<docletArtifact>
+						<groupId>org.umlgraph</groupId>
+						<artifactId>umlgraph</artifactId>
+						<version>5.6.6</version>
+					</docletArtifact>
+					<additionalparam>
+						-views -all
+					</additionalparam>
+-->					<!-- <useStandardDocletOptions>true</useStandardDocletOptions> -->
+					
+					<!-- <additionalparam>-output ${project.build.outputDirectory}/resourcedoc.xml</additionalparam> -->
+<!--                <useStandardDocletOptions>false</useStandardDocletOptions>
+				</configuration>
+			</plugin>
+
+-->			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>${maven-project-info-reports-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+-->					<!-- <licenseFileEncoding>UTF-8</licenseFileEncoding> -->
+<!--				</configuration>
+			</plugin>
+
+-->			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jxr-plugin -->
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>${maven-jxr-plugin.version}</version>
+				<inherited>true</inherited>
+			</plugin>
+
+-->			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<runOrder>random</runOrder>
+				</configuration>
+			</plugin>
+
+-->			<!--   https://mvnrepository.com/artifact/com.atlassian.maven.plugins/maven-clover2-plugin -->
+<!--	<plugin>
+		<groupId>com.atlassian.maven.plugins</groupId>
+		<artifactId>maven-clover2-plugin</artifactId>
+		<version>${maven-clover2-plugin.version}</version>
+		<inherited>true</inherited>
+		<configuration>
+		 <failOnViolation>false</failOnViolation>
+		</configuration>
+	</plugin> 
+
+-->			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-pmd-plugin -->
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>${maven-pmd-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<targetjdk>${java.version}</targetjdk>
+					<rulesets>
+-->						<!-- <ruleset>/rulesets/basic.xml</ruleset> <ruleset>/rulesets/controversial.xml</ruleset> -->
+<!--						<ruleset>/category/java/bestpractices.xml</ruleset>
+					</rulesets>
+					<format>xml</format>
+					<linkXref>true</linkXref>
+-->					<!-- <sourceEncoding>UTF-8</sourceEncoding> -->
+<!--					<minimumTokens>100</minimumTokens>
+-->					<!-- <aggregate></aggregate> -->
+<!--					<analysisCache>true</analysisCache>
+					<benchmark>true</benchmark>
+					<includeTests>true</includeTests>
+					<includeXmlInSite>true</includeXmlInSite>
+					<verbose>${verbose}</verbose>
+				</configuration>
+			</plugin>
+
+-->			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-changes-plugin -->
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>${maven-changes-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<addActionDate>true</addActionDate>
+					<generateJiraAnnouncement>true</generateJiraAnnouncement>
+					<includeOpenIssues>true</includeOpenIssues>
+					<onlyMilestoneIssues>false</onlyMilestoneIssues>
+					<smtpHost>localhost</smtpHost>
+-->					<!-- <sslMode>true</sslMode> -->
+					<!--<startTls>true</startTls> -->
+<!--				</configuration>
+			</plugin>
+
+-->			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>changelog-maven-plugin</artifactId> 
+				<inherited>true</inherited></plugin> -->
+
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-changelog-plugin -->
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-changelog-plugin</artifactId> 
+				<version>${maven-changelog-plugin.version}</version> <inherited>true</inherited> 
+				</plugin> -->
+
+			<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/taglist-maven-plugin -->
+<!--			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>${taglist-maven-plugin.version}</version>
+				<inherited>true</inherited>
+			</plugin>
+
+-->			<!-- https://search.maven.org/artifact/org.jboss.maven.plugins/code-coverage-maven-plugin/1.0.1.Final/maven-plugin -->
+<!--			<plugin>
+				<groupId>org.jboss.maven.plugins</groupId>
+				<artifactId>code-coverage-maven-plugin</artifactId>
+				<version>${code-coverage-maven-plugin.version}</version>
+				<inherited>true</inherited>
+			</plugin>
+			
+-->			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>${maven-checkstyle-plugin.version}</version>
+				<configuration>
+-->					<!-- <excludes>**/test/java/**/*.java</excludes> -->
+<!--					<headerLocation>LICENSE</headerLocation>
+					<failOnViolation>true</failOnViolation>
+				</configuration>
+			</plugin>
+			
+-->			<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/cobertura-maven-plugin -->
+			<!-- 
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>${cobertura-maven-plugin.version}</version>
+				<configuration>
+					<check>
+						<haltOnFailure>false</haltOnFailure>
+						<totalBranchRate>80</totalBranchRate>
+						<totalLineRate>80</totalLineRate>
+						<packageLineRate>80</packageLineRate>
+						<packageBranchRate>80</packageBranchRate>
+					</check>
+					-->     <!-- 
+					<instrumentation>
+						<excludes>
+							<exclude>**/HelpMojo.class</exclude>
+						</excludes>
+					</instrumentation> -->
+		<!-- 		</configuration>
+</plugin>
+ -->
+ 
+<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/javancss-maven-plugin -->
+<!-- 
+<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javancss-maven-plugin</artifactId>
+				<version>${javancss-maven-plugin.version}</version>
+				<configuration>
+				<ccnLimit>10</ccnLimit>
+					<ncssLimit>100</ncssLimit>				
+					<failOnViolation>false</failOnViolation>
+				</configuration>
+</plugin>
+-->
+
+<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/findbugs-maven-plugin -->
+<!-- 
+<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>${findbugs-maven-plugin.version}</version>
+				<configuration>
+					<failOnError>false</failOnError>
+	 -->				<!-- <excludeFilterFile>findBugsExclude.xml</excludeFilterFile> -->
+	<!-- 			</configuration>
+</plugin>
+ -->
+
+<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/jdepend-maven-plugin -->
+<!--<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jdepend-maven-plugin</artifactId>
+				<version>${jdepend-maven-plugin.version}</version>
+</plugin>
+		</plugins>
+	</reporting>
+-->
+	<build>
+<!--		<defaultGoal>site-deploy deploy</defaultGoal>
+--><defaultGoal>deploy</defaultGoal>
+		<plugins>
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>${maven-site-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<generateSitemap>true</generateSitemap>
+-->					<!-- <topSiteURL>${project_url}</topSiteURL> -->
+<!--					<validate>true</validate>
+					<saveProcessedContent>true</saveProcessedContent>
+				</configuration>
+				<dependencies>
+-->					<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+<!--					<dependency>
+						<groupId>org.apache.commons</groupId>
+						<artifactId>commons-lang3</artifactId>
+						<version>${commons-lang3.version}</version>
+					</dependency>
+
+-->					<!-- https://mvnrepository.com/artifact/org.apache.maven.doxia/doxia-site-renderer -->
+<!--					<dependency>
+						<groupId>org.apache.maven.doxia</groupId>
+						<artifactId>doxia-site-renderer</artifactId>
+						<version>${doxia-site-renderer.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+-->
+			<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/aspectj-maven-plugin -->
+			<plugin>
+				<!-- <groupId>org.codehaus.mojo</groupId>-->
+				<groupId>com.github.m50d</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<version>${aspectj.plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<complianceLevel>${java.version}</complianceLevel>
+					<verbose>${verbose}</verbose>
+					<showWeaveInfo>true</showWeaveInfo>
+					<!-- <aspectLibraries> <aspectLibrary> <groupId>com.innovanon.rnd</groupId> 
+						<artifactId>Aspect</artifactId> <version>${project.version}</version> </aspectLibrary> 
+						</aspectLibraries> -->
+					<!-- <weaveDependencies> <weaveDependency> <groupId>com.innovanon.rnd</groupId> 
+						<artifactId>Aspect</artifactId> <version>${project.version}</version> </weaveDependency> 
+						</weaveDependencies> -->
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>test-compile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<!-- Ensure aspectj tools version used by compiler is the same version 
+						used as dependency. Avoids warning -->
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjtools</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+					<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>${aspectj.version}</version>
+			<!-- <scope>runtime</scope> -->
+		</dependency>
+					<!-- <dependency> <groupId>com.innovanon.rnd</groupId> <artifactId>Aspect</artifactId> 
+						<version>${project.version}</version> </dependency> -->
+						<!-- https://stackoverflow.com/questions/48173963/maven-aspectj-plugin-fails-to-build-with-java-9-due-to-missing-tools-jar -->
+						<!-- <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency> -->
+<!--						<dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>tools</artifactId>
+            <version>${java.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/pom.xml</systemPath>
+        </dependency>
+-->				</dependencies>
+			</plugin>
+
+			<!-- https://mvnrepository.com/artifact/org.codehaus.gmavenplus/gmavenplus-plugin -->
+			<plugin>
+				<groupId>org.codehaus.gmavenplus</groupId>
+				<artifactId>gmavenplus-plugin</artifactId>
+				<version>${gmavenplus-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<verbose>${verbose}</verbose>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<scripts>
+								<script><![CDATA[
+                        		new org.reflections.Reflections("${project.groupId}")
+                            	.save("${project.build.outputDirectory}/META-INF/reflections/${project.artifactId}-reflections.xml")
+                    			]]></script>
+							</scripts>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
+					<dependency>
+						<groupId>org.reflections</groupId>
+						<artifactId>reflections</artifactId>
+						<version>${reflections.version}</version>
+					</dependency>
+
+					<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-all</artifactId>
+						<version>${groovy.version}</version>
+						<scope>runtime</scope>
+						<type>pom</type>
+					</dependency>
+
+					<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+					<dependency>
+						<groupId>dom4j</groupId>
+						<artifactId>dom4j</artifactId>
+						<version>${dom4j.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<mainClass>${project.groupId}.${project.artifactId}.App</mainClass>
+						</manifest>
+						<addMavenDescriptor>true</addMavenDescriptor>
+						<compress>true</compress>
+						<recompressAddedZips>true</recompressAddedZips>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<includePom>true</includePom>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${maven-assembly-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<compilerVersion>${java.version}</compilerVersion>
+					<optimize>true</optimize>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<!-- <encoding>UTF-8</encoding> -->
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<release>${java.version}</release>
+					<jdkToolchain>
+					<version>${java.version}</version>
+					</jdkToolchain>
+					<debug>${debug}</debug>
+<!--					<compilerArgs>
+						<arg>add-modules</arg>
+            <arg>java.xml.bind</arg>
+					</compilerArgs>
+-->				</configuration>
+			</plugin>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0-M2</version>
+				<executions>
+					<execution>
+						<id>enforce-maven-3</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>3.5.3</version>
+								</requireMavenVersion>
+							</rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			
+			
+			<!-- install plugin -->
+			<!-- release plugin -->
+			<!-- deploy plugin -->
+			
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${maven-gpg-plugin.version}</version>
+				<!-- 
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions> 
+				 -->
+				</plugin>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/jaxb2-maven-plugin -->
+  <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxb2-maven-plugin</artifactId>
+            <version>2.4</version>
+            <!-- 
+            <executions>
+                <execution>
+                    <id>xjc</id>
+                    <goals>
+                        <goal>xjc</goal>
+                    </goals>
+                </execution>
+            </executions>
+            -->
+            <configuration>
+                <!-- The package of your generated sources -->
+                <packageName>com.innovanon.rnd.net</packageName>
+            </configuration>
+        </plugin>
+
+
+
+		</plugins>
+
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.github.m50d
+										</groupId>
+										<artifactId>
+											aspectj-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.11.1,)
+										</versionRange>
+										<goals>
+											<goal>compile</goal>
+											<goal>test-compile</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
